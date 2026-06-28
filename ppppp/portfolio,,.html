@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ganna Khaled | AI Engineer Portfolio</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        /* ===== RESET & GENERAL ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f0fc;
+            color: #2d1b3d;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            background: #2d1b3d;
+            color: #fff;
+            padding: 18px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(45, 27, 61, 0.3);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #c084e8;
+        }
+
+        .logo span {
+            color: #fff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            font-weight: 500;
+        }
+
+        .nav-links a {
+            padding: 8px 0;
+            border-bottom: 3px solid transparent;
+            transition: 0.3s;
+            font-size: 18px;
+        }
+
+        .nav-links a:hover {
+            border-bottom-color: #c084e8;
+            color: #c084e8;
+        }
+
+        .nav-links a i {
+            margin-right: 6px;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 40px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+            color: #2d1b3d;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: #c084e8;
+            display: block;
+            margin: 10px auto 0;
+            border-radius: 10px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #6b4c7a;
+            font-size: 20px;
+            margin-bottom: 50px;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            background: linear-gradient(145deg, #2d1b3d 0%, #4a2d5e 100%);
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            border-bottom: 6px solid #c084e8;
+        }
+
+        .hero-content h1 {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .hero-content h1 span {
+            color: #c084e8;
+        }
+
+        .hero-content .tagline {
+            font-size: 24px;
+            color: #d4b0f0;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            color: #e0ceec;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #c084e8;
+            color: #2d1b3d;
+            padding: 14px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 18px;
+            transition: 0.3s;
+            border: 2px solid transparent;
+            box-shadow: 0 8px 20px rgba(192, 132, 232, 0.4);
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: #c084e8;
+            border-color: #c084e8;
+            transform: scale(1.03);
+        }
+
+        .btn i {
+            margin-right: 8px;
+        }
+
+        /* ===== SKILLS ===== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .skill-card {
+            background: #fff;
+            padding: 30px 20px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(45, 27, 61, 0.08);
+            transition: 0.4s ease;
+            border-bottom: 5px solid #c084e8;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(192, 132, 232, 0.2);
+        }
+
+        .skill-card i {
+            font-size: 48px;
+            color: #c084e8;
+            margin-bottom: 15px;
+        }
+
+        .skill-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2d1b3d;
+        }
+
+        .skill-card p {
+            font-size: 14px;
+            color: #6b4c7a;
+            margin-top: 5px;
+        }
+
+        /* ===== PROJECTS ===== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+        }
+
+        .project-card {
+            background: #fff;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(45, 27, 61, 0.08);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(192, 132, 232, 0.2);
+        }
+
+        .project-img {
+            background: linear-gradient(145deg, #4a2d5e, #2d1b3d);
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #c084e8;
+            font-size: 60px;
+        }
+
+        .project-info {
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-info h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #2d1b3d;
+        }
+
+        .project-info p {
+            color: #6b4c7a;
+            margin-bottom: 16px;
+            flex: 1;
+        }
+
+        .project-tags {
+            margin-bottom: 12px;
+        }
+
+        .project-tag {
+            display: inline-block;
+            background: #f0e6f7;
+            color: #2d1b3d;
+            padding: 5px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 600;
+            margin: 3px 3px 0 0;
+        }
+
+        .project-links {
+            margin-top: 10px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .project-links a {
+            display: inline-block;
+            background: #2d1b3d;
+            color: #fff;
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .project-links a:hover {
+            background: #c084e8;
+            color: #2d1b3d;
+            transform: scale(1.05);
+        }
+
+        .project-links a i {
+            margin-right: 6px;
+        }
+
+        /* ===== EXPERIENCE ===== */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .exp-card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(45, 27, 61, 0.06);
+            border-right: 5px solid #c084e8;
+            transition: 0.3s;
+        }
+
+        .exp-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 10px 30px rgba(192, 132, 232, 0.15);
+        }
+
+        .exp-card h3 {
+            font-size: 20px;
+            color: #2d1b3d;
+            margin-bottom: 5px;
+        }
+
+        .exp-card .exp-org {
+            color: #c084e8;
+            font-weight: 600;
+        }
+
+        .exp-card .exp-date {
+            color: #6b4c7a;
+            font-size: 14px;
+            margin: 5px 0 12px;
+            display: block;
+        }
+
+        .exp-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .exp-card ul li {
+            padding: 5px 0;
+            color: #3d2a4d;
+            font-size: 15px;
+        }
+
+        .exp-card ul li i {
+            color: #c084e8;
+            margin-right: 8px;
+            font-size: 14px;
+        }
+
+        /* ===== CERTIFICATIONS ===== */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .cert-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(45, 27, 61, 0.06);
+            transition: 0.3s;
+            border-bottom: 4px solid #c084e8;
+        }
+
+        .cert-card:hover {
+            transform: scale(1.03);
+        }
+
+        .cert-card i {
+            font-size: 32px;
+            color: #c084e8;
+            margin-bottom: 10px;
+        }
+
+        .cert-card h4 {
+            font-size: 16px;
+            color: #2d1b3d;
+        }
+
+        .cert-card p {
+            font-size: 14px;
+            color: #6b4c7a;
+            margin-top: 5px;
+        }
+
+        /* ===== ABOUT ===== */
+        .about-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            align-items: center;
+            background: #fff;
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(45, 27, 61, 0.06);
+        }
+
+        .about-text {
+            flex: 2;
+            min-width: 280px;
+        }
+
+        .about-text h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #2d1b3d;
+        }
+
+        .about-text h2 span {
+            color: #c084e8;
+        }
+
+        .about-text p {
+            font-size: 18px;
+            color: #3d2a4d;
+            margin-bottom: 20px;
+        }
+
+        .about-stats {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .stat {
+            background: #f0e6f7;
+            padding: 12px 22px;
+            border-radius: 40px;
+            font-weight: 700;
+            color: #2d1b3d;
+            font-size: 15px;
+        }
+
+        .stat i {
+            color: #c084e8;
+            margin-right: 8px;
+        }
+
+        .about-img {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            font-size: 120px;
+            color: #c084e8;
+            background: #f0e6f7;
+            border-radius: 30px;
+            padding: 40px 20px;
+        }
+
+        /* ===== CONTACT ===== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            background: #fff;
+            padding: 25px 15px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(45, 27, 61, 0.06);
+            transition: 0.3s;
+        }
+
+        .contact-item:hover {
+            background: #2d1b3d;
+            color: #fff;
+            transform: scale(1.02);
+        }
+
+        .contact-item i {
+            font-size: 36px;
+            color: #c084e8;
+            margin-bottom: 10px;
+        }
+
+        .contact-item:hover i {
+            color: #fff;
+        }
+
+        .contact-item h4 {
+            font-size: 16px;
+            word-break: break-all;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #2d1b3d;
+            color: #e0ceec;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 4px solid #c084e8;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .social-links a {
+            color: #e0ceec;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #c084e8;
+            transform: scale(1.2);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 12px;
+                padding: 20px 0 10px;
+                border-top: 1px solid #4a2d5e;
+                margin-top: 12px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .hero-content p {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 30px;
+            }
+
+            .about-wrap {
+                padding: 30px 20px;
+            }
+
+            .about-img {
+                font-size: 80px;
+                padding: 30px 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 70px 0;
+            }
+            .btn {
+                padding: 12px 28px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========== NAVBAR ========== -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Ganna<span>Khaled</span></div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hero"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#skills"><i class="fas fa-cogs"></i> Skills</a></li>
+                <li><a href="#projects"><i class="fas fa-code"></i> Projects</a></li>
+                <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
+                <li><a href="#certifications"><i class="fas fa-certificate"></i> Certifications</a></li>
+                <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="hero">
+        <div class="container hero-content">
+            <h1>Hi, I'm <span>Ganna Khaled</span></h1>
+            <div class="tagline">AI Engineer | Computer Vision | React Developer</div>
+            <p>Fresh graduate specializing in AI and Computer Vision. Passionate about applying deep learning to solve real-world problems.</p>
+            <a href="#projects" class="btn"><i class="fas fa-arrow-down"></i> View My Work</a>
+        </div>
+    </section>
+
+    <!-- ========== SKILLS ========== -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Tech Stack</h2>
+            <p class="section-subtitle">Tools and technologies I work with</p>
+            <div class="skills-grid">
+                <div class="skill-card"><i class="fas fa-brain"></i><h3>AI / Machine Learning</h3><p>Python, Deep Learning, Computer Vision</p></div>
+                <div class="skill-card"><i class="fas fa-eye"></i><h3>Computer Vision</h3><p>OpenCV, YOLOv8, TensorFlow, Keras</p></div>
+                <div class="skill-card"><i class="fas fa-robot"></i><h3>NLP</h3><p>Tokenization, TF-IDF, Text Classification</p></div>
+                <div class="skill-card"><i class="fab fa-react"></i><h3>Frontend</h3><p>React, JavaScript, HTML5, CSS3, Tailwind</p></div>
+                <div class="skill-card"><i class="fas fa-database"></i><h3>Data & Backend</h3><p>MySQL, RESTful APIs, OOP</p></div>
+                <div class="skill-card"><i class="fab fa-git-alt"></i><h3>Tools</h3><p>Git, GitHub, Linux, Flask</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PROJECTS ========== -->
+    <section id="projects" style="background: #f3eaf9;">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <p class="section-subtitle">Check my repositories for detailed implementations</p>
+            <div class="projects-grid">
+
+                <!-- Project 1: Smart Student Behavior Monitoring -->
+                <div class="project-card">
+                    <div class="project-img"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="project-info">
+                        <h3>Smart Student Behavior Monitoring</h3>
+                        <p>Graduation project: Built YOLOv8 & OpenCV model on 2,262 images across 5 classes. Created classification & clustering pipeline with TensorFlow & Scikit-learn to identify at-risk students. Integrated via RESTful API into React dashboard.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">YOLOv8</span>
+                            <span class="project-tag">OpenCV</span>
+                            <span class="project-tag">TensorFlow</span>
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">REST API</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#"><i class="fab fa-github"></i> Repo</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: SMS Spam Detection -->
+                <div class="project-card">
+                    <div class="project-img"><i class="fas fa-robot"></i></div>
+                    <div class="project-info">
+                        <h3>SMS Spam Detection</h3>
+                        <p>Text classification model using NLP preprocessing (tokenization, stopword removal, TF-IDF) and deep learning classifier with TensorFlow/Keras. Deployed via Flask API with ngrok for real-time predictions.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">NLP</span>
+                            <span class="project-tag">TensorFlow</span>
+                            <span class="project-tag">Flask</span>
+                            <span class="project-tag">ngrok</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#"><i class="fab fa-github"></i> Repo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Heart Disease Prediction -->
+                <div class="project-card">
+                    <div class="project-img"><i class="fas fa-heartbeat"></i></div>
+                    <div class="project-info">
+                        <h3>Heart Disease Prediction</h3>
+                        <p>Compared 3 models (Logistic Regression, Random Forest, Neural Network). Applied full preprocessing: one-hot encoding, standard scaling, stratified split. Best accuracy: Logistic Regression ~88.6%. Identified top features using Random Forest.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Scikit-learn</span>
+                            <span class="project-tag">Logistic Regression</span>
+                            <span class="project-tag">Random Forest</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#"><i class="fab fa-github"></i> Repo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Fashion MNIST Classification -->
+                <div class="project-card">
+                    <div class="project-img"><i class="fas fa-tshirt"></i></div>
+                    <div class="project-info">
+                        <h3>Fashion MNIST Classification</h3>
+                        <p>Compared 3 ML algorithms (Logistic Regression, SVM, Random Forest) on 70,000 grayscale images. Applied PCA for dimensionality reduction (784 → 100 features, retaining 95% variance). Best result: SVM achieved 92%.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">SVM</span>
+                            <span class="project-tag">PCA</span>
+                            <span class="project-tag">Scikit-learn</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#"><i class="fab fa-github"></i> Repo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: Pizza Restaurant Menu -->
+                <div class="project-card">
+                    <div class="project-img"><i class="fas fa-pizza-slice"></i></div>
+                    <div class="project-info">
+                        <h3>Pizza Restaurant Menu</h3>
+                        <p>Responsive restaurant menu web page for a pizza shop using HTML, CSS, and JavaScript. Interactive and mobile-friendly UI.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML5</span>
+                            <span class="project-tag">CSS3</span>
+                            <span class="project-tag">JavaScript</span>
+                        </div>
+                       
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== EXPERIENCE ========== -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <p class="section-subtitle">My professional journey</p>
+            <div class="experience-grid">
+                <div class="exp-card">
+                    <h3>AI Intern</h3>
+                    <span class="exp-org">NTI (National Telecommunication Institute)</span>
+                    <span class="exp-date">08/2025 - 09/2025</span>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Completed AI training covering ML, Deep Learning, and Computer Vision</li>
+                        <li><i class="fas fa-check-circle"></i> Achieved 98.5% in Huawei's AI track</li>
+                    </ul>
+                </div>
+                <div class="exp-card">
+                    <h3>IT Trainee</h3>
+                    <span class="exp-org">Al-Qarah Petroleum Refining Company</span>
+                    <span class="exp-date">08/2024 - 10/2024</span>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Hands-on experience in networking fundamentals</li>
+                        <li><i class="fas fa-check-circle"></i> Hardware maintenance and IT infrastructure support</li>
+                    </ul>
+                </div>
+                <div class="exp-card">
+                    <h3>Scratch Programming Instructor</h3>
+                    <span class="exp-org">CIL (Sector Coder)</span>
+                    <span class="exp-date">05/2023 - 2025</span>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Taught Scratch to children aged 4-13</li>
+                        <li><i class="fas fa-check-circle"></i> Introduced foundational coding concepts through interactive projects</li>
+                    </ul>
+                </div>
+                <div class="exp-card">
+                    <h3>Frontend Developer</h3>
+                    <span class="exp-org">Learn2Earn Education</span>
+                    <span class="exp-date">07/2025 - 09/2026</span>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Built interactive and responsive user interfaces</li>
+                        <li><i class="fas fa-check-circle"></i> Collaborated on educational platform development</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CERTIFICATIONS ========== -->
+    <section id="certifications" style="background: #f3eaf9;">
+        <div class="container">
+            <h2 class="section-title">Certifications</h2>
+            <p class="section-subtitle">Professional development & achievements</p>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <i class="fas fa-trophy"></i>
+                    <h4>Huawei AI Track</h4>
+                    <p>Score: 98.5% - NTI</p>
+                </div>
+                <div class="cert-card">
+                    <i class="fas fa-network-wired"></i>
+                    <h4>Switching, Routing, Wireless</h4>
+                    <p>ITIDA & iSpark</p>
+                </div>
+                <div class="cert-card">
+                    <i class="fas fa-cloud"></i>
+                    <h4>Microsoft Azure SC-900</h4>
+                    <p>Pre-intermediate</p>
+                </div>
+                <div class="cert-card">
+                    <i class="fas fa-server"></i>
+                    <h4>Introduction to Networks</h4>
+                    <p>Cisco</p>
+                </div>
+                <div class="cert-card">
+                    <i class="fas fa-award"></i>
+                    <h4>ITIDA Acknowledgement</h4>
+                    <p>Information Technology Industry Development Agency</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== ABOUT ========== -->
+    <section id="about">
+        <div class="container">
+            <div class="about-wrap">
+                <div class="about-text">
+                    <h2>About <span>Me</span></h2>
+                    <p>I'm a fresh graduate in Computer & Information Technology from Egyptian e-Learning University, specializing in AI and Computer Vision. I gained hands-on experience building ML and DL models through academic projects and an AI internship at NTI, achieving a 98.5% score in Huawei's AI track.</p>
+                    <p>I'm passionate about applying deep learning to solve real-world problems and eager to contribute to a team pushing the boundaries of intelligent systems.</p>
+                    <div class="about-stats">
+                        <span class="stat"><i class="fas fa-graduation-cap"></i> B.Sc. 2026</span>
+                        <span class="stat"><i class="fas fa-project-diagram"></i> 5+ Projects</span>
+                        <span class="stat"><i class="fas fa-medal"></i> 98.5% AI Track</span>
+                    </div>
+                </div>
+                <div class="about-img">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CONTACT ========== -->
+    <section id="contact" style="background: #f3eaf9;">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <p class="section-subtitle">I'm always open to new opportunities and collaborations</p>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <h4>ganna.khaled004@gmail.com</h4>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <h4>01094177210</h4>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <h4>Gannakhaled22</h4>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <h4>ganna-khaled</h4>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h4>Egypt (Tanta)</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://github.com/Gannakhaled22" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/ganna-khaled-229293259/?lipi=urn%3Ali%3Apage%3Ad_flagship3_detail_base%3BZJcnQCyMRRWv60YqnjDZxA%3D%3D" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:ganna.khaled004@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p style="font-size: 16px;">&copy; 2026 Ganna Khaled — All Rights Reserved</p>
+            <p style="font-size: 14px; opacity: 0.7; margin-top: 6px;">Always learning. Always building.</p>
+        </div>
+    </footer>
+
+    <!-- ===== JavaScript for Mobile Menu ===== -->
+    <script>
+        const toggleBtn = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        toggleBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
